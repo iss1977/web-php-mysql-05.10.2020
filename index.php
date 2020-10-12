@@ -18,10 +18,27 @@
 
 <body>
 
+<?php 
+
+   
+    $GLOBALS['GL_PROJECT_ROOT'] = __DIR__;
+    define('HTTP_PATH_ROOT', isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : '_UNKNOWN_'));
+    define('LOCAL_PATH_ROOT', $_SERVER['DOCUMENT_ROOT']);
+    define('RELATIVE_PATH_ROOT', '');
+    define('RELATIVE_PATH_BASE', str_replace(LOCAL_PATH_ROOT, RELATIVE_PATH_ROOT, getcwd()));
+    var_dump($GLOBALS['GL_PROJECT_ROOT']);
+    echo ("hello");
+    echo( constant('RELATIVE_PATH_BASE'));
+?>
 
 <?php session_start(); // we load the current session or start a new one...
+if(isset($_SESSION['username'])){
+    header("Location: ./auth/secret.php");
+    exit();
+}
 include('./inc/loggedNav.inc.php');
 ?>
+
 
 
     <!-- ----------------------   My Image slider carousel --------------------------->
@@ -112,12 +129,36 @@ include('./inc/loggedNav.inc.php');
             </button>
         </div>
         <form  action="./auth/registry.php?register=1" method="post">
-            <div class="modal-body">
-                
+            <div class="modal-body w-100">
+                <div class="form-group my-1">
+                    <label class = "form-control col-sm-4" for="username">Username:</label>
+                    <input class = "form-control col-sm-7" type="text" name = "username" id="username">
+                </div>
+                <div class="form-group my-1">
+                    <label class = "form-control col-sm-4" for="password1">Password:</label>
+                    <input class = "form-control col-sm-7"  type="password" name = "password1" id="password1">
+                </div>
+                <div class="form-group my-1">
+                    <label class = "form-control col-sm-4" for="password2">Password again:</label>
+                    <input class = "form-control col-sm-7"  type="password" name = "password2" id="password2">
+                </div>
+                <div class="form-group my-1">
+                    <label class = "form-control col-sm-4" for="first-name">First name:</label>
+                    <input  class = "form-control col-sm-7" type="text" name = "first-name" id="first-name">
+                </div>
+                <div class="form-group my-1">
+                    <label class = "form-control col-sm-4" for="last-name">Last name:</label>
+                    <input  class = "form-control col-sm-7" type="text" name = "last-name" id="last-name">
+                </div>
+                <div class="form-group my-1">
+                    <label class = "form-control col-sm-4" for="email">Email:</label>
+                    <input class = "form-control col-sm-7"  type="email" name = "email" id="email">
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
     </div>

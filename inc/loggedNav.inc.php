@@ -10,7 +10,7 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Visit us</a>
+                    <a class="nav-link" href="<?php $GLOBALS['GL_PROJECT_ROOT']?>/auth/lexicon-list.php"><?php $PROJECT_ROOT?>Lexicon items</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Pricing</a>
@@ -21,7 +21,7 @@
             <?php 
             if (isset($_SESSION["username"])){ ?>
             <!-- If logged in, we can logout-->
-            <form action="./auth/logout.php" method="post" class="form-inline my-2 my-lg-0">
+            <form action="./logout.php" method="post" class="form-inline my-2 my-lg-0">
                 <span class="mr-2">You are logged in.</span>
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
             </form>
@@ -31,12 +31,12 @@
                 <form action="./auth/login.php?login=1" method="post">
                     <div class="form-row justify-content-end">
                         <div class="col-sm-3 my-1">
-                            <label class="sr-only" for="inlineFormInputName">Username:</label>
-                            <input type="email" class="form-control" id="inlineFormInputName" name="username" placeholder="user@domain.com">
+                            <label class="sr-only" for="inlineFormInputName">Username or email:</label>
+                            <input type="text" class="form-control" id="inlineFormInputName" name="username" placeholder="user@domain.com">
                         </div>
                         <div class="col-sm-3 my-1">
                             <label class="sr-only" for="inlineFormInputGroupUsername">Password :</label>
-                            <input type="password" class="form-control" id="inlineFormInputGroupUsername" name="pd" placeholder="******">
+                            <input type="password" class="form-control" id="inlineFormInputGroupUsername" name="password" placeholder="******">
                         </div>
                         <div class="col-auto my-1">
                             <div class="form-check">
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                 </form>
-                <form>
+                <form action="./auth/registry.php?register=1" method="get">
                     <div class="col-auto my-1">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registerModalCenter">Register</button>
                     </div>
