@@ -50,6 +50,7 @@ if (isset($_REQUEST['login'])){
     }
 } else {
     $error=NULL;
+    header("Location: ../index.php");
 }
 
 ?>

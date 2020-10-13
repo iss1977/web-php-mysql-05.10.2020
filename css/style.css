@@ -1,0 +1,48 @@
+/*
+* Styling the editLexicon modal window
+*
+*/
+
+#newItemModalCenter{
+   
+}
+#newItemModalCenter .modal-body{
+    display: flex;
+}
+
+#newItemModalCenter .modal-body .left-side{
+    display: flex;
+    flex-direction: column;
+    /* flex: 1; */
+    border : 1px  lightgray solid;
+}
+
+#newItemModalCenter .modal-body .left-side .image-holder
+{
+    height : auto;
+    object-fit: contain;
+}
+
+
+
+#newItemModalCenter .modal-body .left-side button
+{
+    height : auto;
+}
+
+
+
+
+#newItemModalCenter .modal-body .right-side{
+    display: flex;
+    flex-direction: column;
+    /* flex: 3; */
+    border-left: 3px solid grey;
+}
+
+
+#image-holder-editLexicon{
+    width : 100px;
+    height: 100px;
+    background-color: whitesmoke;
+}

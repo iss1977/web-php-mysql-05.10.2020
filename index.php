@@ -13,56 +13,27 @@
     <!-- My CSS-->
     <link rel="stylesheet" href="css/style.css">
 
+   <!-- <base href="localhost/web-php-mysql-05.10.2020/" target="_blank">  -->
+
     <title>PHP Aufgabe - 10.05.2020</title>
 </head>
 
 <body>
 
 <?php 
-
-   
-    $GLOBALS['GL_PROJECT_ROOT'] = __DIR__;
-    define('HTTP_PATH_ROOT', isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : '_UNKNOWN_'));
-    define('LOCAL_PATH_ROOT', $_SERVER['DOCUMENT_ROOT']);
-    define('RELATIVE_PATH_ROOT', '');
-    define('RELATIVE_PATH_BASE', str_replace(LOCAL_PATH_ROOT, RELATIVE_PATH_ROOT, getcwd()));
-    var_dump($GLOBALS['GL_PROJECT_ROOT']);
-    echo ("hello");
-    echo( constant('RELATIVE_PATH_BASE'));
+    $base_url="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/';
+    echo $base_url;
+    define('RELATIVE_PATH_ROOT', $base_url);
 ?>
 
 <?php session_start(); // we load the current session or start a new one...
 if(isset($_SESSION['username'])){
     header("Location: ./auth/secret.php");
-    exit();
+    exit;
 }
+// include the navigation :
 include('./inc/loggedNav.inc.php');
 ?>
-
-
-
-    <!-- ----------------------   My Image slider carousel --------------------------->
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="img/cat-slider-1.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="img/cat-slider-2.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="img/cat-slider-3.jpg" class="d-block w-100" alt="...">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
 
     <div class="container">
         <div class="row">
@@ -72,14 +43,9 @@ include('./inc/loggedNav.inc.php');
             $result = $con->query("SELECT id, title, teaser, description, imgpath, created_at FROM content");
             
             while($entry = $result->fetch_assoc()) { 
-              
             ?>
 
-
     <!-- ----------------------  My Cards -------------------------------->
-
-    
-
             <div id ="<?php echo $entry['id'] ?>" class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
@@ -97,9 +63,12 @@ include('./inc/loggedNav.inc.php');
             </div>
 
 
-<?php
-} // close the while loop : while($entry = $result->fetch_assoc())
-?>
+            <?php
+            } // close the while loop : while($entry = $result->fetch_assoc())
+            ?>
+            
+
+
 
         </div> <!--close class row-->
     </div>  <!--close class container -->

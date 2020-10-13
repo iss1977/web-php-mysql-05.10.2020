@@ -24,30 +24,6 @@ include('auth.php'); // sesion start is in here
 include('./../inc/loggedNav.inc.php');
 ?>
 
-
-    <!-- ----------------------   My Image slider carousel --------------------------->
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="../img/cat-slider-1.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../img/cat-slider-2.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../img/cat-slider-3.jpg" class="d-block w-100" alt="...">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-
     <div class="container">
         <div class="row">
 
@@ -55,15 +31,8 @@ include('./../inc/loggedNav.inc.php');
             include('./../inc/login.inc.php');
             $result = $con->query("SELECT id, title, teaser, description, imgpath, created_at FROM content");
             
-            while($entry = $result->fetch_assoc()) { 
-              
-            ?>
-
-
+            while($entry = $result->fetch_assoc()) {   ?>
     <!-- ----------------------  My Cards -------------------------------->
-
-    
-
             <div id ="<?php echo $entry['id'] ?>" class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
@@ -81,9 +50,26 @@ include('./../inc/loggedNav.inc.php');
             </div>
 
 
-<?php
-} // close the while loop : while($entry = $result->fetch_assoc())
-?>
+            <?php
+            } // close the while loop : while($entry = $result->fetch_assoc())
+            ?>
+
+            <!-- I make a suplimentary card to add new entries-->
+            <div id ="#add-new-element" class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="../img/plus-logo.png"  class="card-img  m-3" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body m-3">
+                            <br>
+                            <p>Add a new element to the list</p>
+                            <button type="button" class="btn btn-primary ajaxModel" data-id="-1">Add new</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
         </div> <!--close class row-->
     </div>  <!--close class container -->
@@ -124,7 +110,7 @@ include('./../inc/loggedNav.inc.php');
     </div>
   </div>
 </div>
-
+<div id="custom-modal"></div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
@@ -136,7 +122,8 @@ include('./../inc/loggedNav.inc.php');
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
     
-    <script src="js/app.js"></script>
+    <script src="./../js/app.js"></script>
+    
 </body>
 
 </html>

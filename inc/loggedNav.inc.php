@@ -7,10 +7,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="<?php echo RELATIVE_PATH_ROOT ?>">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php $GLOBALS['GL_PROJECT_ROOT']?>/auth/lexicon-list.php"><?php $PROJECT_ROOT?>Lexicon items</a>
+                    <a class="nav-link" href="<?php echo RELATIVE_PATH_ROOT ?>auth/lexicon-list.php">Lexicon items</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Pricing</a>
