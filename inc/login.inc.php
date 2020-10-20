@@ -1,5 +1,5 @@
 <?php
-$host ="18.159.190.97";
+$host ="locahost";
 $pw = "myuserpass";
 $user ="myuser";
 $db = "mydb";
