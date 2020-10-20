@@ -6,7 +6,7 @@ $db = "mydb";
 
 $con = new mysqli($host, $user, $pw, $db);
 if($con->connect_errno) {
-    printf("Connect failed: %sn", $con->connect_error);
+    printf("Connect to mysql  failed: %sn", $con->connect_error);
     exit();
 }
 ?>
