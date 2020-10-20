@@ -4,6 +4,7 @@
 */
 
 #newItemModalCenter{
+    min-width: 400px;
    
 }
 #newItemModalCenter .modal-body{

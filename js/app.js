@@ -40,14 +40,13 @@ $(document).ready(function() {
             // Creating an AJAX request ....
             console.log("Getting the data for "+lexiconID);
             $.ajax({
-                url:'./inc/loadModal.inc.php',
-                type:'post',
-                data :{ lexiconID},
-                success : function(response){
-                    //console.log("RESPONSE IS "+response);
-                    $('.modal-content').html(response);
-                    $('#staticBackdrop').modal('show');  
-                } 
+                type: "post",
+                url: 'editLexicon.php',
+                data: {lexiconID},
+                success: function(obj) {
+                    $("#custom-modal").html(obj);
+                    $("#newItemModalCenter").modal('show');
+                }
             });
         }
     });

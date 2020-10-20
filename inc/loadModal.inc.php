@@ -1,6 +1,7 @@
 <?php 
 define('SECURE', true);
 session_start();
+
 $entry = $_REQUEST['lexiconID'];
 
 
